@@ -1,12 +1,10 @@
 import {Drawer, IconButton, List, ListItem, ListItemButton, ListItemText} from "@mui/material";
 import {useState} from "react";
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
-import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import {AVAILABLE_FUNCTIONALITIES} from "./constants/AppConstants";
 
 export default function App() {
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const list = ['Items', 'Users'];
 
     return (
         <>
@@ -17,18 +15,15 @@ export default function App() {
                 onClose={e => setDrawerOpen(false)}
             >
                 <List>
-                    <ListItem>
-                        <ListItemButton>
-                            <TranslateOutlinedIcon />
-                            <ListItemText primary="Translations" />
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemButton>
-                            <AccountCircleOutlinedIcon />
-                            <ListItemText primary="Users" />
-                        </ListItemButton>
-                    </ListItem>
+                    {AVAILABLE_FUNCTIONALITIES.map(f => (
+                        <ListItem key={f.name}>
+                            <ListItemButton>
+                                {f.element}
+                                <ListItemText primary={f.name} />
+                            </ListItemButton>
+                        </ListItem>
+                    ))
+                    }
                 </List>
             </Drawer>
         </>
