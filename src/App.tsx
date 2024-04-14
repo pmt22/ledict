@@ -1,31 +1,59 @@
-import {Drawer, IconButton, List, ListItem, ListItemButton, ListItemText} from "@mui/material";
-import {useState} from "react";
-import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import {Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography} from "@mui/material";
 import {AVAILABLE_FUNCTIONALITIES} from "./constants/AppConstants";
+import {DRAWER_WIDTH} from "./constants/CssConstant";
+import {HorizontalBox} from "./App.style";
 
 export default function App() {
-    const [drawerOpen, setDrawerOpen] = useState(false);
 
     return (
-        <>
-            <IconButton onClick={e => setDrawerOpen(true)} children={<MenuOutlinedIcon/>}/>
-            <Drawer
-                anchor="left"
-                open={drawerOpen}
-                onClose={e => setDrawerOpen(false)}
-            >
-                <List>
+        <Box sx={{display: 'flex'}}>
+            <Drawer variant={"permanent"} sx={{width: DRAWER_WIDTH}}>
+                <List sx={{width: DRAWER_WIDTH}}>
                     {AVAILABLE_FUNCTIONALITIES.map(f => (
-                        <ListItem key={f.name}>
-                            <ListItemButton>
-                                {f.element}
-                                <ListItemText primary={f.name} />
-                            </ListItemButton>
-                        </ListItem>
+                        <>
+                            <ListItem key={f.name}>
+                                <ListItemButton>
+                                    {f.element}
+                                    <ListItemText primary={f.name}/>
+                                </ListItemButton>
+                            </ListItem>
+                            <Divider/>
+                        </>
                     ))
                     }
                 </List>
             </Drawer>
-        </>
+            <HorizontalBox>
+                <Typography paragraph>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
+                    enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
+                    imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
+                    Convallis convallis tellus id interdum velit laoreet id donec ultrices.
+                    Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+                    adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
+                    nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
+                    leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
+                    feugiat vivamus at augue. At augue eget arcu dictum varius duis at
+                    consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
+                    sapien faucibus et molestie ac.
+                </Typography>
+                <Typography paragraph>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
+                    enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
+                    imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
+                    Convallis convallis tellus id interdum velit laoreet id donec ultrices.
+                    Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+                    adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
+                    nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
+                    leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
+                    feugiat vivamus at augue. At augue eget arcu dictum varius duis at
+                    consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
+                    sapien faucibus et molestie ac.
+                </Typography>
+            </HorizontalBox>
+
+        </Box>
     );
 }

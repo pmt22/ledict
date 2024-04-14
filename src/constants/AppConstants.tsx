@@ -5,7 +5,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 
 export const AVAILABLE_FUNCTIONALITIES: Array<PdFunctionality> = [
     {
-        name: 'Translations',
+        name: 'Glossary',
         element: <TranslateOutlinedIcon/>
     },
     {
