@@ -1,8 +1,38 @@
 import {Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography} from "@mui/material";
-import {AVAILABLE_FUNCTIONALITIES} from "./constants/AppConstants";
 import {DRAWER_WIDTH} from "./constants/CssConstant";
 import {HorizontalBox} from "./App.style";
 import SearchBar from "./components/searchbar/SearchBar";
+import DataList from "./components/list/DataList";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import React from "react";
+import ErrorPage from "./components/error/ErrorPage";
+import GlossaryMain from "./components/glossary/GlossaryMain";
+import {PdFunctionality} from "./models/PdFunctionality";
+import TranslateOutlinedIcon from "@mui/icons-material/TranslateOutlined";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <GlossaryMain/>,
+        errorElement: <ErrorPage/>
+    }
+]);
+
+const AVAILABLE_FUNCTIONALITIES: Array<PdFunctionality> = [
+    {
+        name: 'Glossary',
+        element: <TranslateOutlinedIcon/>
+    },
+    {
+        name: 'Users',
+        element: <AccountCircleOutlinedIcon />
+    },
+    {
+        name: 'Admin',
+        element: <AccountCircleOutlinedIcon />
+    },
+]
 
 export default function App() {
 
@@ -24,38 +54,8 @@ export default function App() {
                     }
                 </List>
             </Drawer>
-            <HorizontalBox>
-                <SearchBar/>
-                <Typography paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-                    enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-                    imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-                    Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-                    Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-                    adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-                    nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-                    leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-                    feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-                    consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-                    sapien faucibus et molestie ac.
-                </Typography>
-                <Typography paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-                    enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-                    imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-                    Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-                    Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-                    adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-                    nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-                    leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-                    feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-                    consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-                    sapien faucibus et molestie ac.
-                </Typography>
-            </HorizontalBox>
 
+            <RouterProvider router={router}/>
         </Box>
     );
 }

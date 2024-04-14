@@ -1,9 +1,18 @@
-import {Box} from "@mui/material";
+import {AppBar, Box, Toolbar, Typography} from "@mui/material";
 
 export default function SearchBar() {
     return (
-        <Box>
-            <h1>SearchBar</h1>
-        </Box>
+        <AppBar position={"sticky"}>
+            <Toolbar>
+                <Typography
+                    variant="h6"
+                    noWrap
+                    component="div"
+                    sx={{ display: { xs: 'none', sm: 'block' } }}
+                >
+                    LEDICT
+                </Typography>
+            </Toolbar>
+        </AppBar>
     );
 }

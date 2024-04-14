@@ -1,4 +1,4 @@
-import {Box, styled} from "@mui/material";
+import {Box, createTheme, styled} from "@mui/material";
 import MuiDrawer from '@mui/material/Drawer';
 import {DRAWER_WIDTH} from "./constants/CssConstant";
 
