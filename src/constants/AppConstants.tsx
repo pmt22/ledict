@@ -1,4 +1,4 @@
-import {PdFunctionality} from "../components/models/PdFunctionality";
+import {PdFunctionality} from "../models/PdFunctionality";
 import TranslateOutlinedIcon from "@mui/icons-material/TranslateOutlined";
 import React from "react";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";

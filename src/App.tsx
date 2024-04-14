@@ -2,6 +2,7 @@ import {Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemText, Tool
 import {AVAILABLE_FUNCTIONALITIES} from "./constants/AppConstants";
 import {DRAWER_WIDTH} from "./constants/CssConstant";
 import {HorizontalBox} from "./App.style";
+import SearchBar from "./components/searchbar/SearchBar";
 
 export default function App() {
 
@@ -24,6 +25,7 @@ export default function App() {
                 </List>
             </Drawer>
             <HorizontalBox>
+                <SearchBar/>
                 <Typography paragraph>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
