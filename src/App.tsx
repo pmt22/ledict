@@ -1,8 +1,5 @@
-import {Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography} from "@mui/material";
+import {Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemText} from "@mui/material";
 import {DRAWER_WIDTH} from "./constants/CssConstant";
-import {HorizontalBox} from "./App.style";
-import SearchBar from "./components/searchbar/SearchBar";
-import DataList from "./components/list/DataList";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import React from "react";
 import ErrorPage from "./components/error/ErrorPage";
@@ -10,12 +7,18 @@ import GlossaryMain from "./components/glossary/GlossaryMain";
 import {PdFunctionality} from "./models/PdFunctionality";
 import TranslateOutlinedIcon from "@mui/icons-material/TranslateOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import TranslationDetailMain from "./components/glossary/detail/TranslationDetailMain";
+import {Mode} from "./constants/Enums";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <GlossaryMain/>,
         errorElement: <ErrorPage/>
+    },
+    {
+        path: '/trans/create',
+        element: <TranslationDetailMain mode={Mode.CREATE}/>
     }
 ]);
 
@@ -26,13 +29,13 @@ const AVAILABLE_FUNCTIONALITIES: Array<PdFunctionality> = [
     },
     {
         name: 'Users',
-        element: <AccountCircleOutlinedIcon />
+        element: <AccountCircleOutlinedIcon/>
     },
     {
         name: 'Admin',
-        element: <AccountCircleOutlinedIcon />
+        element: <AccountCircleOutlinedIcon/>
     },
-]
+];
 
 export default function App() {
 
